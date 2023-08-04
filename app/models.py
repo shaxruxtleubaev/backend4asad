@@ -24,6 +24,11 @@ class Event(Model):
 		null=True
 	)
 
+	image = ImageField(
+		'Фото',
+		upload_to='events-photos/%Y/%m/%d'
+	)
+
 	def __str__(self):
 		return f'{self.title}'
 

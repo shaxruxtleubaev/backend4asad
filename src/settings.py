@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'app',
 
     # Third party
+    'django_cleanup.apps.CleanupConfig',
     'rest_framework', 
     # 'rest_framework.authtoken',
     'corsheaders', 
