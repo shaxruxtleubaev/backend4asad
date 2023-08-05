@@ -3,25 +3,19 @@ from django.utils import timezone
 
 class Event(Model):
 
-	date = DateField(
-		'Дата мероприятия',
-		default=timezone.now
+	date = CharField(
+		'Дата',
+		max_length=256
+	)
+
+	time = CharField(
+		'Время',
+		max_length=256
 	)
 
 	title = CharField(
 		'Название мероприятия',
 		max_length=256
-	)
-
-	subtitle = CharField(
-		'Подзагаловок',
-		max_length=256
-	)
-
-	dop_info = TextField(
-		'Дополнительное поле',
-		blank=True,
-		null=True
 	)
 
 	image = ImageField(
