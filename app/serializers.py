@@ -18,9 +18,3 @@ class EventSerializer(ModelSerializer):
 			"title_en",
 			'image',
 		)
-		extra_kwargs = {
-		    'date': {'required': False},
-		    'title': {'required': False},
-		    'time': {'required': False},
-		    'image': {'required': False},
-		}

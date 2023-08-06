@@ -14,8 +14,6 @@ class EventAdmin(TranslationAdmin):
 	list_display = ('id', 'title', 'date', 'time')
 	list_display_links = ('id', 'title', 'date', 'time')
 	ordering = ('-date',)
-	# group_fieldsets = True 
-	# fields = ('title', 'date', 'time', 'image')
 
 	class Media:
 		js = (
