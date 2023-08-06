@@ -1,25 +1,26 @@
 from django.db.models import *
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 class Event(Model):
 
 	date = CharField(
-		'Дата',
+		_('Sana'),
 		max_length=256
 	)
 
 	time = CharField(
-		'Время',
+		_('Vaqt'),
 		max_length=256
 	)
 
 	title = CharField(
-		'Название мероприятия',
+		_('Konsert nomi'),
 		max_length=256
 	)
 
 	image = ImageField(
-		'Фото',
+		'Fotosurat',
 		upload_to='events-photos/%Y/%m/%d'
 	)
 
@@ -27,6 +28,6 @@ class Event(Model):
 		return f'{self.title}'
 
 	class Meta:
-		verbose_name = 'Событие'
-		verbose_name_plural = 'События'
+		verbose_name = 'Konsert'
+		verbose_name_plural = 'Konsertlar'
 		ordering = ['-date']

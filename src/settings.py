@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from django.utils.translation import gettext as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*$cr-g)l+2lan-mlvnzge#zyzpl8ocnmuobi-^=_y#483_g42='
@@ -9,15 +8,15 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'jazzmin',  # Third party
-    # 'modeltranslation', # Third party
     'django.contrib.auth',
-    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     "whitenoise.runserver_nostatic",  # Third Party 
     'django.contrib.staticfiles',
     'django.contrib.sites',  # Third party 
+    'modeltranslation', # Third party 
+    'django.contrib.admin',
 
     # Local
     'app',
@@ -32,6 +31,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # Third Party 
     "whitenoise.middleware.WhiteNoiseMiddleware",  # Third Party 
     "corsheaders.middleware.CorsMiddleware",  # Third Party 
     'django.middleware.common.CommonMiddleware', 
@@ -40,6 +40,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Translation
+LOCALE_PATHS = [
+    BASE_DIR / 'locale/',
+]
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
+MODELTRANSLATION_LANGUAGES = ('uz', 'ru', 'en')
 
 # Third party 
 REST_FRAMEWORK = { 
@@ -92,10 +99,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'uz'
 TIME_ZONE = 'Asia/Tashkent'
+USE_L10N = True
 USE_I18N = True
 USE_TZ = True
+
+LANGUAGES = (
+    ('uz', 'Uzbek'),
+    ('ru', 'Russia'),
+    ('en', 'English'),
+)
 
 STATIC_URL = "/static/" 
 STATIC_ROOT = BASE_DIR / "static" 
