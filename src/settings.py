@@ -7,7 +7,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    'https://backend4asad.pythonanywhere.com/',
+    'backend4asad.pythonanywhere.com',
 ]
 
 INSTALLED_APPS = [
