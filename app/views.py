@@ -4,11 +4,7 @@ from rest_framework.viewsets import *
 from .models import Event
 from .serializers import EventSerializer
 
-class EventViewSet(ModelViewSet):
-	permission_classes = (AllowAny,)
-	queryset = Event.objects.all()
-	serializer_class = EventSerializer
-
+# Translation
 from urllib.parse import urlparse
 from django.conf import settings
 from django.http import HttpResponseRedirect
@@ -16,6 +12,9 @@ from django.urls.base import resolve, reverse
 from django.urls.exceptions import Resolver404
 from django.utils import translation
 
+class EventViewSet(ModelViewSet):
+	queryset = Event.objects.all()
+	serializer_class = EventSerializer
 
 def set_language(request, language):
     for lang, _ in settings.LANGUAGES:

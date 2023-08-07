@@ -3,8 +3,12 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*$cr-g)l+2lan-mlvnzge#zyzpl8ocnmuobi-^=_y#483_g42='
-DEBUG = True
-ALLOWED_HOSTS = ['*']
+DEBUG = False
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'https://backend4asad.pythonanywhere.com/',
+]
 
 INSTALLED_APPS = [
     'jazzmin',  # Third party
@@ -50,25 +54,17 @@ MODELTRANSLATION_LANGUAGES = ('uz', 'ru', 'en')
 # Third party 
 REST_FRAMEWORK = { 
     "DEFAULT_PERMISSION_CLASSES": [ 
-        "rest_framework.permissions.AllowAny", 
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly", 
     ]
-} 
+}
 
 # Third party
 CORS_ALLOWED_ORIGINS = (
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "http://localhost:5500",
-
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8000",
     "http://127.0.0.1:5500",
 )
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "http://localhost:5500",
-
     "http://127.0.0.1:3000",
     "http://127.0.0.1:8000",
     "http://127.0.0.1:5500",
